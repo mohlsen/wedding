@@ -1,0 +1,58 @@
+<html>
+<head>
+<title>Test</title>
+</head>
+<body>
+<table width="814" border="1"><th>Manual</th>
+  <tr> 
+    <td width="808" height="93">
+	<form name="MANUAL_FORM" action="test.php" method="post">
+	  <p>SQL QUERY: 
+		<input type="text" name="name" />
+		<input type="submit" name="ok" value="Submit form">
+	  </p>
+	</form> 
+	</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><br>
+</p>
+<table width="814" border="1">
+    <th>Update RSVP's</th>
+  <tr> 
+    <td width="808" height="47">
+	
+	<form name="AUTO_FORM" action="test2.php" method="post">
+	    Select Invite:
+
+          <select name="select">
+		              <?php 
+             
+   //build appropriate client list 
+             
+   $db = new DB_SQL;        
+   $db->connect(); 
+   $db->query($sql); 
+             
+   while($db->next_record()){ 
+        echo "<option value=\"" . stripslashes($db->f("stud_id")) . "\">" . stripslashes($db->f("full_name")) . "</option>" ;             
+   }          
+          
+          ?> 
+		  
+          </select>
+
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p> 
+          <input type="submit" name="ok" value="Submit form">
+        </p>
+	</form>
+	
+	</td>
+  </tr>
+</table>
+</body>
+</html>
