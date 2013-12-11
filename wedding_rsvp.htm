@@ -1,0 +1,144 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><!-- InstanceBegin template="/Templates/RSVP.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Wedding RSVP</title>
+<!-- InstanceEndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+<script language="JavaScript">
+<!--
+
+function formSubmit(formobj){
+	
+	if (formobj.Attending[0].checked == true)
+	{
+		var fieldRequired = Array("FirstName", "LastName", "PeopleAttending");
+		var fieldDescription = Array("First Name", "Last Name", "People Attending");
+		var alertMsg = "Please complete the following fields:\n";
+	}
+	else
+	{
+		var fieldRequired = Array("FirstName", "LastName");
+		var fieldDescription = Array("First Name", "Last Name");
+		var alertMsg = "Please complete the following fields:\n";
+	}
+	
+	var l_Msg = alertMsg.length;
+	for (var i = 0; i < fieldRequired.length; i++){
+		var obj = formobj.elements[fieldRequired[i]];
+		if (obj){
+			switch(obj.type){
+			case "select-one":
+				if (obj.selectedIndex == -1 || obj.options[obj.selectedIndex].text == ""){
+					alertMsg += " - " + fieldDescription[i] + "\n";
+				}
+				break;
+			case "text":
+			case "textarea":
+				if (obj.value == "" || obj.value == null){
+					alertMsg += " - " + fieldDescription[i] + "\n";
+				}
+				break;
+			default:
+				if (obj.value == "" || obj.value == null){
+					alertMsg += " - " + fieldDescription[i] + "\n";
+				}
+			}
+		}
+	}
+
+	if (alertMsg.length == l_Msg){
+		if ((formobj.elements["ReceiveMail"].checked == true) & ((formobj.elements["email"].value == "") || (formobj.elements["email"].value == null))){
+			alert("If you would like to receive information about the wedding via e-mail, you must enter your email address.  Otherwise, uncheck the box above the RSVP Button.  After that, you must click RSVP again.");
+			return false;
+		}
+
+		formobj.submit();
+		return true;
+	
+	}else{
+		alert(alertMsg);
+		return false;
+	}
+}
+//enctype="multipart/form-data"-->
+</script>
+
+</head>
+<body>
+<table width="800" border="0">
+  <tr> 
+    <td width="800" height="90"><img src="images/title.jpg" width="365" height="64"></td>
+  </tr>
+  <tr> 
+    <td width="800" height="200"><form>
+        <!-- InstanceBeginEditable name="RSVP Page Name" -->
+        <h2><strong>Wedding RSVP</strong></h2>
+        <!-- InstanceEndEditable -->
+<p>First Name: 
+	  		<!--<input type=hidden name="recipient" value="wedding@mohlsen.com"> 
+			<input type=hidden name="subject" value="Someone has RSVP'd for the wedding"> 
+			<input type=hidden name="redirect" value="http://www.mohlsen.com/thank_you.htm">-->
+		
+		<input type="hidden" name="L1" value="http://www.mohlsen.com/thank_you.htm">  
+		<input type="hidden" name="S1" value="Someone has RSVP'd for the wedding">
+
+          <input name="FirstName" type="text" size="30">
+          Last Name: 
+          <input name="LastName" type="text" size="40">
+		  
+        </p>
+      <p>E-Mail Address (if applicable) 
+        <input name="email" type="text" size="60">
+      </p>
+        <p>
+          <label>
+          <input name="Attending" type="radio" value="Yes" checked>
+          Yes, I plan on attending.</label>
+          <br>
+          <label>
+          <input type="radio" name="Attending" value="No">
+          Sorry, I am not able to attend.</label>
+        </p>
+
+      <p>People Attending (including yourself): 
+        <select name="PeopleAttending">
+		  <option></option>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+          <option>6</option>
+          <option>7</option>
+          <option>8</option>
+          <option>9</option>
+          <option>10+</option>
+        </select>
+      </p>
+      <p>Comments for Becky and Mike:</p>
+      <p>
+        <textarea name="comment" cols="100" rows="6"></textarea>
+      </p>
+        <input name="ReceiveMail" type="checkbox" value="yes" checked>
+        Yes, I would like to receive announcements, information, and reminders 
+        about the wedding via e-mail.<font size="-1">*</font> 
+
+      <p> 
+        <input name="Button" type="button" value="R.S.V.P.">
+		<INPUT type="reset" name="reset" value="Clear">
+      </p>
+	     </form>
+
+      <p><font size="-1">*Subject to terms of mohlsen.com Privacy Policy. Clike 
+        <a href="privacy.htm">here</a> for detailed information. </font></p></td>
+  </tr>
+  <tr> 
+    <td width="800" height="200">&nbsp;</td>
+  </tr>
+</table>
+</body>
+<!-- InstanceEnd --></html>
+
